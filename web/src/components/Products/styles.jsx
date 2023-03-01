@@ -8,4 +8,5 @@ padding-top: 16px;
   display: flex;
   background-color: var(--light-text);
   flex-flow: row wrap;
+  
 `;

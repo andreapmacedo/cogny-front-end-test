@@ -1,12 +1,12 @@
 import ProductCard from '../../components/ProductCard';
 import { ProductsContainer } from './styles';
 
-const Products = ({data}) => {
-  console.log(data);
+const Products = ({data, action}) => {
+  // console.log("data", data);
   return (
     <ProductsContainer>
       {data.map((product, index) => (
-        <ProductCard key={index} data={product} />
+        <ProductCard key={index} data={product} action={action}/>
       ))}
     </ProductsContainer>
   );
