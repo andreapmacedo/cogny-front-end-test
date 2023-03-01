@@ -21,7 +21,7 @@ const CartCard = ({ data }) => {
         <img src={product.imageUrl} alt="Product" />
       </StyleImage>
       <StyleDescription>
-        <h3>{product.description}</h3>
+        <h5>{product.description}</h5>
         <h3>{price}</h3>
       </StyleDescription>
       <StyleQuantity>{data.quantity}</StyleQuantity>

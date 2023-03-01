@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyleCard = styled.div`
 
   display: grid; 
-  grid-template-columns: 20% 50% 10% 20%;
+  grid-template-columns: 10% 50% 10% 10%;
   grid-template-areas:
   "image description quantity subTotal";
   
@@ -13,7 +13,7 @@ export const StyleCard = styled.div`
   
   border-bottom: 1px solid #ccc;
   border: 1px solid #ccc;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
   padding: 15px 30px;
 `;
 
@@ -21,17 +21,18 @@ export const StyleImage = styled.div`
 grid-area: image;
 
 overflow: hidden;
-background-color: blue;
+/* background-color: blue; */
 
 img {
-    width: 300px;    
-    object-fit: cover;
+    width: 100px;    
+    height: 100px;
+    /* object-fit: cover; */
   }
 `;
 
 export const StyleDescription = styled.div`
   grid-area: description;
-  background-color: green;
+  /* background-color: green; */
   /* width: 400px; */
   display: flex;
   flex-direction: column;
@@ -52,7 +53,7 @@ export const StyleQuantity = styled.div`
 
 export const StyleSubTotal = styled.div`
   grid-area: subTotal;
-  background-color: yellow;
+  /* background-color: yellow; */
   display: flex;
   /* justify-content: center; */
   align-items: center;

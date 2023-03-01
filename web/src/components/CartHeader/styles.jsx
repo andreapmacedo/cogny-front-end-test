@@ -4,6 +4,6 @@ export const StyleCartHeader = styled.div`
 
   display: grid; 
   padding: 15px 30px;
-  grid-template-columns: 20% 50% 10% 20%;
-  
+  grid-template-columns: 10% 50% 10% 10%;
+
 `;
