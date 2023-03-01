@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { projectFirestore } from '../../firebase/config';
+import Products from '../../components/Products';
 
 const Home = () => {
 
@@ -27,42 +28,14 @@ const Home = () => {
     });
   }, [])
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const response = await projectFirestore.collection('products').get();
-  //       const data = response.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data()
-  //       }))
-  //       setData(data);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       setError(error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, [])
-
   return (
-    <div
-      className="home"
-    >
+    <div className="home">
+      <h1>Home</h1>
       {error && <p>Something went wrong ...</p>}
       {loading && <p>Loading...</p>}
-      {data && data.map((product) => (
-        <div key={product.id}>
-          {/* <h2>{product.name}</h2> */}
-          <p>{product.description}</p>
-          <p>{product.price}</p>
-        </div>
-      ))}
-      <h1>Hello World</h1>
+      {data && <Products data={data} />}
     </div>
   );
 }
-
-
 
 export default Home;

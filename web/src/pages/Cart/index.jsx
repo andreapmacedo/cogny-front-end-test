@@ -8,7 +8,7 @@ const Cart = () => {
     <div
       className="cart"
     >
-      <h1>Hello World</h1>
+      <h1>Cart</h1>
     </div>
   );
 }
