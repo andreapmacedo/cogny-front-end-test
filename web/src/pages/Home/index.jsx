@@ -2,17 +2,18 @@ import { useState, useEffect, useContext } from 'react';
 import { projectFirestore } from '../../firebase/config';
 import Products from '../../components/Products';
 import Header from '../../components/Header';
-import { CartContext } from '../../provider/CartProvider';
-
+import { GlobalContext } from '../../provider/GlobalProvider';
 
 const Home = () => {
 
-  const [product, setProduct] = useState([]);
-  // const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
-  const { cart, setCart } = useContext(CartContext);
+  const {
+      cart,
+      setCart,
+      products,
+      setProducts
+    } = useContext(GlobalContext);
 
   useEffect(() => {
     setLoading(true);
@@ -25,7 +26,7 @@ const Home = () => {
           snapshot.docs.forEach(doc => {
             results.push({id: doc.id, ...doc.data()});
           });
-          setProduct(results);
+          setProducts(results);
           setLoading(false);
       }
     }).catch((error) => {
@@ -66,16 +67,16 @@ const Home = () => {
         setCart([...cart, {productId: id, quantity: 1}]);
       }
     } catch (error) {
-      console.error('Erro ao adicionar item ao carrinho:', error);
+      console.error('Error to add item:', error);
     }
   }
 
   return (
-    <div className="home">
+    <div>
       <Header />
       {error && <p>Something went wrong ...</p>}
       {loading && <p>Loading...</p>}
-      {product && <Products data={product} action={addToCart}/>}
+      {products && <Products data={products} action={addToCart}/>}
     </div>
   );
 }
