@@ -1,22 +1,32 @@
 import { useContext } from 'react';
-import { CardContainer, ImageContainer } from './styles';
 import { GlobalContext } from '../../provider/GlobalProvider';
+import { 
+  StyleCard,
+  StyleImage,
+  StyleDescription,
+  StyleQuantity,
+  StyleSubTotal
+} from './styles';
 
 const CartCard = ({ data }) => {
   const { products } = useContext(GlobalContext);
   
   const product = products.find(product => product.id === data.productId);
   const price = product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  console.log(price);
-
+  const subTotal = (product.price * data.quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  
   return (
-    <CardContainer>
-      <ImageContainer>
+    <StyleCard>
+      <StyleImage>
         <img src={product.imageUrl} alt="Product" />
-      </ImageContainer>
-      <h3>{product.description}</h3>
-      <h4>{price}</h4>
-    </CardContainer>
+      </StyleImage>
+      <StyleDescription>
+        <h3>{product.description}</h3>
+        <h3>{price}</h3>
+      </StyleDescription>
+      <StyleQuantity>{data.quantity}</StyleQuantity>
+      <StyleSubTotal>{subTotal}</StyleSubTotal>
+    </StyleCard>
   );
 }
 

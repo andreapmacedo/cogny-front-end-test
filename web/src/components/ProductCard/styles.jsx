@@ -12,7 +12,6 @@ export const ProductCardContainer = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
-  
 
   &:hover {
     transform: scale(1.05);
@@ -22,13 +21,8 @@ export const ProductCardContainer = styled.div`
 
 export const ImageContainer = styled.div`
 
-
-/* width: 100%; */
 width: 200px;
 height: 200px;
-/* padding: 10px; */
-/* height: 300px; */
-/* object-fit: cover; */
 
 img {
     height: 100%;

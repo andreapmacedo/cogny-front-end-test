@@ -1,41 +1,59 @@
 import styled from 'styled-components';
 
-export const CardContainer = styled.div`
+export const StyleCard = styled.div`
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: 300px;
-  height: 350px;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
+  display: grid; 
+  grid-template-columns: 20% 50% 10% 20%;
+  grid-template-areas:
+  "image description quantity subTotal";
   
+  width: 96%;
+  
+  align-items: center;
+  
+  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  padding: 15px 30px;
+`;
 
-  &:hover {
-    transform: scale(1.05);
+export const StyleImage = styled.div`
+grid-area: image;
+
+overflow: hidden;
+background-color: blue;
+
+img {
+    width: 300px;    
+    object-fit: cover;
   }
 `;
 
+export const StyleDescription = styled.div`
+  grid-area: description;
+  background-color: green;
+  /* width: 400px; */
+  display: flex;
+  flex-direction: column;
+`;
 
-export const ImageContainer = styled.div`
+export const StyleQuantity = styled.div`
+  grid-area: quantity;
+  width: 48px;
+  height: 36px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #aaa;
+  font-style: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-
-/* width: 100%; */
-width: 200px;
-height: 200px;
-/* padding: 10px; */
-/* height: 300px; */
-/* object-fit: cover; */
-
-img {
-    height: 100%;
-    width: 100%;
-
-    overflow: hidden;
-    object-fit: cover;
-  }
-
+export const StyleSubTotal = styled.div`
+  grid-area: subTotal;
+  background-color: yellow;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
 `;
