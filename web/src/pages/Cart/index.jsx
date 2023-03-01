@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { projectFirestore } from '../../firebase/config';
+import { useContext } from 'react';
+import Header from "../../components/Header";
+import { CartContext } from '../../provider/CartProvider';
 
 const Cart = () => {
-
+  const { cart, setCart } = useContext(CartContext);
 
   return (
-    <div
-      className="cart"
-    >
+    <div>
+      <Header />
       <h1>Cart</h1>
     </div>
   );
 }
-
-
 
 export default Cart;

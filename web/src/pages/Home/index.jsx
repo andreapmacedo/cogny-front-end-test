@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { projectFirestore } from '../../firebase/config';
 import Products from '../../components/Products';
+import Header from '../../components/Header';
+import { CartContext } from '../../provider/CartProvider';
+
 
 const Home = () => {
 
   const [product, setProduct] = useState([]);
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const { cart, setCart } = useContext(CartContext);
 
   useEffect(() => {
     setLoading(true);
@@ -67,7 +72,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1>Home</h1>
+      <Header />
       {error && <p>Something went wrong ...</p>}
       {loading && <p>Loading...</p>}
       {product && <Products data={product} action={addToCart}/>}
