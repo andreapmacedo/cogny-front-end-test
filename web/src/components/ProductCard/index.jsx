@@ -1,6 +1,7 @@
 import { ProductCardContainer,
   ImageContainer,
-  StyleDescription
+  StyleDescription,
+  StyleButton
 } from './styles';
 
 const ProductCard = ({data, action}) => {
@@ -16,10 +17,10 @@ const ProductCard = ({data, action}) => {
         <h3>{data.description}</h3>
         <h4>{price}</h4>
       </StyleDescription>
-      <button onClick={() => action(data)}>
-        <p>1</p>
-        <p>ADICIONAR AO CARRINHOS</p>
-      </button>
+      <StyleButton onClick={() => action(data)}>
+        <div>1</div>
+        <div>ADICIONAR AO CARRINHOS</div>
+      </StyleButton>
     </ProductCardContainer>
   );
 }

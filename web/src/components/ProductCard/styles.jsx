@@ -10,44 +10,8 @@ export const ProductCardContainer = styled.div`
   height: 350px;
   background-color: #fff;
   border-radius: 4px;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
 
-
-  button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    background-color: #c62c4a;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    /* position: relative; */
-    /* bottom: 0; */
-
-    transition: all 0.3s ease-in-out;
-    
-
-    &:hover {
-      transform: scale(1.05);
-    }
-    
-    &:active {
-      transform: scale(1);
-      /* visibility: hidden; */
-    }
-
-
-    p {
-      font-size: 12px;
-      font-weight: 700;
-      background-color: #c62c4a;
-    }
-
-  }
-
-
+  position: relative;
 
 `;
 
@@ -56,7 +20,7 @@ export const ImageContainer = styled.div`
 
 width: 200px;
 height: 200px;
-background-color: #fff;
+/* background-color: #fff; */
 display: flex;
 align-items: center;
 justify-content: center;
@@ -89,6 +53,55 @@ export const StyleDescription = styled.div`
     margin: 10px 0;
     background-color: #fff;
   }
+`;
+
+export const StyleButton = styled.div`
+  position: absolute;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* width: 100%; */
+  margin-left: 20px;
+  margin-right: 20px;
+  /* background-color: #c62c4a; */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  bottom: 20px;
+
+  transition: all 0.3s ease-in-out;
+  /* -webkit-transition-duration: 0.3s; Safari */
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  &:active {
+    transform: scale(1);
+    /* visibility: hidden; */
+  }
 
 
+  div {
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #c62c4a;
+    /* background-color: #c34; */
+  }
+
+  div:nth-child(1) {
+    /* font-size: 14px; */
+    font-weight: 700;
+    /* background-color: #95243a; */
+    background-color: red;
+    /* color: #442; */
+    /* width: 100%; */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px 0 0 4px;
+  }
 `;
