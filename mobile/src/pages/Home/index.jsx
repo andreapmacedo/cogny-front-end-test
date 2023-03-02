@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { GlobalContext } from '../../provider/GlobalProvider';
 import { projectFirestore } from '../../firebase/config';
 import ProductCard from '../../components/ProductCard';
+import Header from '../../components/Header';
 import { 
   View,
   StyleSheet,
@@ -10,13 +11,9 @@ import {
   FlatList,
 } from 'react-native'
 
-// import { useNavigation } from '@react-navigation/native';
-
 // import * as Animatable from 'react-native-animatable';
 
 export default function Home() {
-
-  // const navigation = useNavigation();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -85,7 +82,12 @@ export default function Home() {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={styles.container}
+    >
+      <Header />
+      {error && <Text>Something went wrong...</Text>}
+      {loading && <Text>Loading...</Text>}
       <FlatList
         data={products}
         renderItem={({ item }) => (
@@ -100,6 +102,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
     backgroundColor: '#191919',
     color: '#fff',
   },

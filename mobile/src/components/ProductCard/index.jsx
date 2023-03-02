@@ -1,5 +1,6 @@
 import React from 'react';
-import { View,
+import { 
+  View,
   Text,
   Image,
   StyleSheet,
@@ -10,12 +11,18 @@ const ProductCard = ({ data, action }) => {
   const { description, price, imageUrl } = data;
 
   return (
-    <View>
-      <Image source={{ uri: imageUrl }} style={{ width: 100, height: 100 }} />
-      <Text>{description}</Text>
-      <Text>{price}</Text>
-      <TouchableOpacity onPress={() => action(data)}>
-        <Text>Add to Cart</Text>
+    <View
+      style={styles.container}
+    >
+      <Image source={{ uri: imageUrl }} style={styles.imageContainer}/>
+      <Text style={styles.textDescription}>{description}</Text>
+      <Text style={styles.textPrice}>{`R$ ${price.toFixed(2).replace('.', ',')}`}</Text>
+      <TouchableOpacity
+        style={styles.touchable}
+        onPress={() => action(data)}
+      >
+        <Text style={styles.textQuantity}>1</Text>
+        <Text style={styles.textButton}>Adicionar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -25,9 +32,57 @@ export default ProductCard;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#191919',
-    color: '#fff',
+    margin: 10,
+    backgroundColor: '#fff',
+    borderRadius: 4,
   },
+  imageContainer: {
+    alignSelf: 'center',
+    height: 200,
+    width: 200,
+    resizeMode: 'contain',
+  },
+  textDescription: {
+    fontSize: 16,
+    
+    paddingHorizontal: 40,
+    paddingVertical: 10,
+  },
+  textPrice: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingHorizontal: 40,
+    paddingVertical: 10,
+  },
+  textQuantity: {
+    backgroundColor: '#c62c4a',
+    borderTopLeftRadius: 4,
+    borderBottomLeftRadius: 4,
+    flexGrow: 1,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
+    textAlign: 'center',
+    padding: 10,
+  },
+  textButton: {
+    backgroundColor: '#f8375d',
+    borderTopRightRadius: 4,
+    borderBottomRightRadius: 4,
+    flexGrow: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
+    alignSelf: 'center',
+    textAlign: 'center',
+    padding: 10,
+  },
+  touchable: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    margin: 20,
+    padding: 10,
+  }
+
 });
 
