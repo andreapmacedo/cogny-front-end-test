@@ -1,35 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../../provider/GlobalProvider';
 import { 
   View,
-  Text,
-  Image,
   StyleSheet,
-  TouchableOpacity
-} from 'react-native';
+  Text,
+  SafeAreaView,
+  Image,
+} from 'react-native'
 
-const ProductCard = ({ data, action }) => {
-  const { description, price, imageUrl } = data;
+const CartCard = ({ data }) => {
+  const { productId, quantity } = data;
+  const { products } = useContext(GlobalContext);
+  const product = products.find(product => product.id === productId);
+  const { description, price, imageUrl } = product;
+  
   const priceBRL = `R$ ${price.toFixed(2).replace('.', ',')}`
-
+  const subTotalBRL = `R$ ${(price *quantity).toFixed(2).replace('.', ',')}`;
+  
   return (
-    <View
-      style={styles.container}
-    >
+    <SafeAreaView>
       <Image source={{ uri: imageUrl }} style={styles.imageContainer}/>
-      <Text style={styles.textDescription}>{description}</Text>
-      <Text style={styles.textPrice}>{priceBRL}</Text>
-      <TouchableOpacity
-        style={styles.touchable}
-        onPress={() => action(data)}
-      >
-        <Text style={styles.textQuantity}>1</Text>
-        <Text style={styles.textButton}>Adicionar</Text>
-      </TouchableOpacity>
-    </View>
+      <View>
+        <Text style={styles.textDescription}>{description}</Text>
+        <Text style={styles.textDescription}>{priceBRL}</Text>
+      </View>
+      <Text style={styles.textDescription}>{subTotalBRL}</Text>
+      <Text style={styles.textDescription}>{quantity}</Text>
+    </SafeAreaView>
   );
-};
+}
 
-export default ProductCard;
+export default CartCard;
 
 const styles = StyleSheet.create({
   container: {
@@ -84,4 +85,3 @@ const styles = StyleSheet.create({
     padding: 10,
   }
 });
-
