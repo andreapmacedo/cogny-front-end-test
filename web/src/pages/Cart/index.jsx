@@ -1,14 +1,15 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Header from "../../components/Header";
 import CartHeader from '../../components/CartHeader';
 import CartFooter from '../../components/CartFooter';
 import CartCard from '../../components/CartCard';
 import { GlobalContext } from '../../provider/GlobalProvider';
 import { projectFirestore } from '../../firebase/config';
-import { StyleCard } from './styles';
+import { StyleCard, StyleCardContainer } from './styles';
 
 const Cart = () => {
-  const { cart } = useContext(GlobalContext);
+  const { cart, products } = useContext(GlobalContext);
+  const [total, setTotal] = useState(0);
 
   const setCheckout = async () => {
     const querySnapshot = await projectFirestore.collection('cart').get();
@@ -22,15 +23,26 @@ const Cart = () => {
     } 
   }
 
+  useEffect(() => {
+    const total = cart.reduce((acc, productCart) => {
+      console.log(productCart);
+      const { quantity } = productCart;
+      const currentProduct = products.find(product => product.id === productCart.productId);
+      return acc + (quantity*currentProduct.price);
+    }, 0);
+    setTotal(total);
+  }, [cart, products]);
+
   return (
     <StyleCard>
       <Header />
       <CartHeader />
-      {cart.map((product, index) => (
-        <CartCard key={index} data={product} />
-      ))}
-      <button onClick={() => setCheckout()}>Finalizar Compra</button>
-      <CartFooter />
+      <StyleCardContainer>
+        {cart.map((product, index) => (
+          <CartCard key={index} data={product} />
+        ))}
+      </StyleCardContainer>
+      <CartFooter total={total} action={setCheckout}/>
     </StyleCard>
   );
 }

@@ -3,6 +3,7 @@ import { projectFirestore } from '../../firebase/config';
 import Products from '../../components/Products';
 import Header from '../../components/Header';
 import { GlobalContext } from '../../provider/GlobalProvider';
+import { StyleHome } from './styles';
 
 const Home = () => {
 
@@ -72,12 +73,12 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <StyleHome>
       <Header />
       {error && <p>Something went wrong ...</p>}
       {loading && <p>Loading...</p>}
       {products && <Products data={products} action={addToCart}/>}
-    </div>
+    </StyleHome>
   );
 }
 

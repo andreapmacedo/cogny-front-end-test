@@ -1,41 +1,42 @@
 import styled from 'styled-components';
 
 export const StyleCard = styled.div`
-
   display: grid; 
-  grid-template-columns: 10% 50% 10% 10%;
+  grid-template-columns: 15% 50% 15% 20%;
   grid-template-areas:
   "image description quantity subTotal";
   
-  width: 96%;
-  
+  width: 100%;
+  background-color: #fff;
   align-items: center;
-  
   border-bottom: 1px solid #ccc;
-  border: 1px solid #ccc;
-  /* background-color: #f2f2f2; */
-  padding: 15px 30px;
+  
 `;
 
 export const StyleImage = styled.div`
 grid-area: image;
-
+background-color: #fff;
 overflow: hidden;
-/* background-color: blue; */
+display: flex;
+align-items: center;
+justify-content: center;
 
 img {
     width: 100px;    
     height: 100px;
-    /* object-fit: cover; */
   }
 `;
 
 export const StyleDescription = styled.div`
   grid-area: description;
-  /* background-color: green; */
-  /* width: 400px; */
+  background-color: #fff;
   display: flex;
   flex-direction: column;
+
+  h5, h3 {
+    font-size: 14px;
+    background-color: #fff;
+  }
 `;
 
 export const StyleQuantity = styled.div`
@@ -49,12 +50,12 @@ export const StyleQuantity = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
 `;
 
 export const StyleSubTotal = styled.div`
   grid-area: subTotal;
-  /* background-color: yellow; */
+  background-color: #fff;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 `;

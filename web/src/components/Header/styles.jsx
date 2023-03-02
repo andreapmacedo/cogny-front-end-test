@@ -4,27 +4,43 @@ export const HeaderContainer = styled.div`
 
   display: flex;
   justify-content: space-between;
-  padding: 1rem 8rem;
+  padding: 2rem 0;
+  top: 0;
+  /* position: fixed; */
+  /* z-index: 100; */
+  background-color: #191919;
+  color: #fff;
 
   div {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 10rem;
     height: 3rem;
     background-color: #fff;
+    background-color: #191919;
     border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-    transition: all 0.2s ease-in-out;
     cursor: pointer;  
   }
-  
-
-  div:nth-child(1) {
-  
-  }
+    
   div:nth-child(2) {
-  
+    display: flex;
+    flex-direction: column;
+    
+    h3 {
+      align-self: flex-end;
+    }
+    
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;  
+    }
+
+    p {
+      color: #999;
+      padding-right: 4px;
+      font-style: bolder;
+    }
   }
   
 `;

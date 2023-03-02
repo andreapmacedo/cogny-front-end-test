@@ -1,4 +1,7 @@
-import { ProductCardContainer, ImageContainer } from './styles';
+import { ProductCardContainer,
+  ImageContainer,
+  StyleDescription
+} from './styles';
 
 const ProductCard = ({data, action}) => {
 
@@ -9,9 +12,14 @@ const ProductCard = ({data, action}) => {
       <ImageContainer>
         <img src={data.imageUrl} alt="Product" />
       </ImageContainer>
-      <h3>{data.description}</h3>
-      <h4>{price}</h4>
-      <button onClick={() => action(data)}>Add to cart</button>
+      <StyleDescription>
+        <h3>{data.description}</h3>
+        <h4>{price}</h4>
+      </StyleDescription>
+      <button onClick={() => action(data)}>
+        <p>1</p>
+        <p>ADICIONAR AO CARRINHOS</p>
+      </button>
     </ProductCardContainer>
   );
 }
