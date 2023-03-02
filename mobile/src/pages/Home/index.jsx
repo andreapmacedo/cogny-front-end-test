@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { GlobalContext } from '../../provider/GlobalProvider';
+import { projectFirestore } from '../../firebase/config';
+import ProductCard from '../../components/ProductCard';
 import { 
   View,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  SafeAreaView,
+  FlatList,
 } from 'react-native'
 
 // import { useNavigation } from '@react-navigation/native';
@@ -14,79 +18,89 @@ export default function Home() {
 
   // const navigation = useNavigation();
 
-  return (
-    <View style={styles.container}>
-      <Text>Home</Text>
-      {/* <View style={styles.containerLogo} >
-        <Animatable.Image
-          animation="flipInY"
-          // source={require('../../assets/logo.png')}
-          style={{ width: 200, height: 200 }}
-          resizeMode="contain" 
-        />
-      </View>
-      <View style={styles.containerForm}>
-        <Text style={styles.title}>Welcome to the</Text>
-        <Text style={styles.text}>React Native</Text>
-        <TouchableOpacity style={styles.button}>
-          <Text
-            style={styles.buttonText}
-            onPress={() => navigation.navigate('SignIn')}
-          
-          >
-            Sign In
-          </Text>
-        </TouchableOpacity>
-      </View> */}
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const {
+      cart,
+      setCart,
+      products,
+      setProducts
+    } = useContext(GlobalContext);
 
-    </View>
+  useEffect(() => {
+    setLoading(true);
+    projectFirestore.collection('products').get().then((snapshot) => {
+      if (snapshot.empty) {
+        setError('No matching documents.');
+        setLoading(false);
+      } else {
+          let results = [];
+          snapshot.docs.forEach(doc => {
+            results.push({id: doc.id, ...doc.data()});
+          });
+          // console.log('results:', results);
+          setProducts(results);
+          setLoading(false);
+      }
+    }).catch((error) => {
+      setError(error);
+      setLoading(false);
+    });
+  }, [])
+
+  useEffect(() => {
+    projectFirestore.collection('cart').onSnapshot((snapshot) => {
+      let results = [];
+      snapshot.docs.forEach(doc => {
+        results.push(doc.data());
+      });
+      setCart(results);
+    });
+  }, [])
+  
+  const addToCart = async ({ id }) => {
+    try {
+      
+      const querySnapshot = await projectFirestore.collection('cart').where('productId', '==', id).get();
+      const existingItem = cart.find(item => item.productId === id);
+
+      if (existingItem) {
+        const { quantity } = existingItem;
+        
+        const newCart = cart.map(item => item.productId === id ? { ...item, quantity: item.quantity + 1 } : item);
+        const updateItem = projectFirestore.collection('cart').doc(querySnapshot.docs[0].id);
+        
+        await updateItem.update({ quantity: quantity + 1 });
+        setCart(newCart);
+      
+      } else {
+        const newItem = { productId: id, quantity: 1 };
+        
+        await projectFirestore.collection('cart').doc().set(newItem);
+        setCart([...cart, {productId: id, quantity: 1}]);
+      }
+    } catch (error) {
+      console.error('Error to add item:', error);
+    }
+  }
+
+  return (
+    <SafeAreaView>
+      <FlatList
+        data={products}
+        renderItem={({ item }) => (
+          <ProductCard data={item} action={addToCart}/>
+        )}
+        keyExtractor={item => item.id}
+      />
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  
   container: {
     flex: 1,
-    backgroundColor: 'darkblue',
-  },
-  containerLogo: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'darkblue',
-  },
-  containerForm: {
-    flex: 1,
-    backgroundColor: 'white',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    paddingStart: '5%',
-    paddingEnd: '5%',
-  },
-  title: {
-    fontWeight: 'bold',
-    marginTop: 28,
-    backgroundColor: 'white',
-    marginBottom: 12,
-  },
-  text: {
-    fontWeight: 'bold',
-    marginTop: 28,
-    backgroundColor: 'white',
-    marginBottom: 12,
-  },
-  buttonText: {
-    backgroundColor: 'white',
-  },
-  button: {
-    position: 'absolute',
-    backgroundColor: 'red',
-    borderRadius: 50,
-    paddingVertical: 8,
-    width: '60%',
-    alignSelf: 'center',
-    bottom: '15%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#191919',
+    color: '#fff',
   },
 });
