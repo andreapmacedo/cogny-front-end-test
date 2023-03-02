@@ -14,8 +14,8 @@ const ProductCard = ({data, action}) => {
         <img src={data.imageUrl} alt="Product" />
       </ImageContainer>
       <StyleDescription>
-        <h3>{data.description}</h3>
-        <h4>{price}</h4>
+        <h5>{data.description}</h5>
+        <h3>{price}</h3>
       </StyleDescription>
       <StyleButton onClick={() => action(data)}>
         <div>1</div>

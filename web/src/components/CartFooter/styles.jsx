@@ -36,11 +36,25 @@ export const StyleCartFooter = styled.div`
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-  }
 
-  button:disabled {
-    background-color: #999;
-    cursor: not-allowed;
+    transition: all 0.3s ease-in-out;
+    
+    :enabled {
+      &:hover {
+      transform: scale(1.05);
+      }
+      
+      &:active {
+        transform: scale(1);
+      }
+    }  
+
+    :disabled {
+     background-color: #999;
+      cursor: not-allowed;
+    }
+
+
   }
 
 `;
