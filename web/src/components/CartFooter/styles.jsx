@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyleCartFooter = styled.div`
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,32 +11,28 @@ export const StyleCartFooter = styled.div`
   div {
     width: 200px;
     display: flex;
-    align-items: center;
-    background-color : #fff;
+    align-items: flex-end;
   }
+
   p {
-    background-color : #fff;
     color: #999;
     padding-right: 4px;
-    font-style: bolder;
-    
-  }
-  h2 {
-    background-color : #fff;
+    font-weight: 700;
   }
 
-
+  
   button {
-    border: none;
     background-color: #c62c4a;
-    padding: 10px 20px;
+    border: none;
     border-radius: 4px;
     color: #fff;
-    font-size: 16px;
-    font-weight: 700;
     cursor: pointer;
-
+    font-size: 12px;
+    font-weight: 700;
+    padding: 13px 20px;
     transition: all 0.3s ease-in-out;
+    width: 162px;
+    height: 42px;
     
     :enabled {
       &:hover {

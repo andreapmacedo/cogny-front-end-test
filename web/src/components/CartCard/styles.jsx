@@ -6,56 +6,60 @@ export const StyleCard = styled.div`
   grid-template-areas:
   "image description quantity subTotal";
   
-  width: 100%;
-  background-color: #fff;
   align-items: center;
+  background-color: #fff;
   border-bottom: 1px solid #ccc;
-  
+  padding: 0 30px;
+  width: 100%;
 `;
 
 export const StyleImage = styled.div`
-grid-area: image;
-background-color: #fff;
-overflow: hidden;
-display: flex;
-align-items: center;
-justify-content: center;
+  grid-area: image;
 
-img {
-    width: 100px;    
-    height: 100px;
+  align-items: center;
+  display: flex;  
+  height: 100px;
+  width: 100px;
+
+  img {
+    object-fit: cover;
+    overflow: hidden;
+    width: 100%;
   }
 `;
 
 export const StyleDescription = styled.div`
   grid-area: description;
+  
   background-color: #fff;
   display: flex;
   flex-direction: column;
 
-  h5, h3 {
-    font-size: 14px;
-    background-color: #fff;
+  p {
+    font-size: 12px;
+    font-weight: 700;
   }
+
 `;
 
 export const StyleQuantity = styled.div`
   grid-area: quantity;
-  width: 48px;
-  height: 36px;
+  
+  align-items: center;
   border: 1px solid #ccc;
   border-radius: 4px;
-  color: #aaa;
-  font-style: bold;
+  color: #999;
   display: flex;
+  font-weight: 500;
+  height: 36px;
   justify-content: center;
-  align-items: center;
-  background-color: #fff;
+  width: 48px;
 `;
 
 export const StyleSubTotal = styled.div`
   grid-area: subTotal;
-  background-color: #fff;
-  display: flex;
+  
   align-items: center;
+  font-weight: 700;
+  display: flex;
 `;

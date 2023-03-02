@@ -5,7 +5,7 @@ import { ProductCardContainer,
 } from './styles';
 
 const ProductCard = ({data, action}) => {
-
+  
   const price = data.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
   return (
