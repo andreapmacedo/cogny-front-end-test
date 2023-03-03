@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { GlobalContext } from '../../provider/GlobalProvider';
+// import { useContext } from 'react';
+// import { GlobalContext } from '../../provider/GlobalProvider';
 import { 
   View,
   TouchableOpacity,
@@ -10,25 +10,22 @@ import {
 
 const CartFooter = ({total, action}) => {
 
-  const { cart } = useContext(GlobalContext);
+  // const { cart } = useContext(GlobalContext);
 
   const totalBRL = `R$ ${total.toFixed(2).replace('.', ',')}`
   
   return (
     <View>
-      <TouchableOpacity
-        
-        onPress={() => action()}
-        
-      >
-        <Text>FINALIZAR PEDIDO</Text>
-      
-      </TouchableOpacity>
-      <View>
-        <Text>TOTAL</Text>
-        <Text style={styles.text}>{totalBRL}</Text>
-        {/* <Text>{total}</Text> */}
+      <View style={styles.checkout}>
+        <Text style={styles.textTotal}>TOTAL</Text>
+        <Text style={styles.textValue}>{totalBRL}</Text>
       </View>
+      <TouchableOpacity
+        style={styles.touchable}
+        onPress={() => action()} 
+      >
+        <Text style={styles.textButton}>FINALIZAR PEDIDO</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -36,19 +33,34 @@ const CartFooter = ({total, action}) => {
 export default CartFooter;
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: '#191919',
-    color: '#fff',
-    marginTop: 40,
+  checkout: {
+    alignSelf: 'center',
+    marginVertical: 10,
   },
-  text: {
-    // color: '#fff',
+  textValue: {
+    fontSize: 24,
+    alignSelf: 'center',
+    fontWeight: 'bold',
+  },
+  textTotal: {
+    color: '#999',
+    alignSelf: 'center',
+    fontWeight: 'bold',
+  },
+  textButton: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   touchable: {
     paddingLeft: 20,
+    borderRadius: 4,
     paddingRight: 20,
+    height: 42,
+    marginHorizontal: 10,
+    marginVertical: 10,
     justifyContent: 'center',
+    backgroundColor: '#c62c4a',
   }
 });

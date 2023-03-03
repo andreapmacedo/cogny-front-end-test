@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { GlobalContext } from '../../provider/GlobalProvider';
-import { projectFirestore } from '../../firebase/config';
+import { projectFirestore } from '../../firebase/setup';
 import ProductCard from '../../components/ProductCard';
 import Header from '../../components/Header';
 import { 
@@ -82,28 +82,34 @@ export default function Home() {
   }
 
   return (
-    <SafeAreaView
+    <View
       style={styles.container}
     >
       <Header />
       {error && <Text>Something went wrong...</Text>}
       {loading && <Text>Loading...</Text>}
-      <FlatList
-        data={products}
-        renderItem={({ item }) => (
-          <ProductCard data={item} action={addToCart}/>
-        )}
-        keyExtractor={item => item.id}
-      />
-    </SafeAreaView>
+      <View style={styles.cardContainer} >
+        {products &&
+          <FlatList
+            data={products}
+            renderItem={({ item }) => (
+              <ProductCard data={item} action={addToCart}/>
+            )}
+            keyExtractor={item => item.id}
+          />
+        }
+      </View>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
+    marginTop: 40,
     backgroundColor: '#191919',
-    color: '#fff',
+    height: '100%',
+  },
+  cardContainer: {
+    marginTop: 20,
   },
 });

@@ -18,14 +18,22 @@ const CartCard = ({ data }) => {
   const subTotalBRL = `R$ ${(price *quantity).toFixed(2).replace('.', ',')}`;
   
   return (
-    <SafeAreaView>
-      <Image source={{ uri: imageUrl }} style={styles.imageContainer}/>
-      <View>
-        <Text style={styles.textDescription}>{description}</Text>
-        <Text style={styles.textDescription}>{priceBRL}</Text>
+    <SafeAreaView
+      style={styles.container}
+    >
+      <View style={styles.main}>
+        <Image source={{ uri: imageUrl }} style={styles.imageContainer}/>
+        <View>
+          <Text style={styles.textDescription}>{description}</Text>
+          <Text style={styles.textPrice}>{priceBRL}</Text>
+        </View>
       </View>
-      <Text style={styles.textDescription}>{subTotalBRL}</Text>
-      <Text style={styles.textDescription}>{quantity}</Text>
+      <View style={styles.footer}>
+        <View style={styles.quantityContainer} >
+          <Text style={styles.textQuantity}>{quantity}</Text>
+        </View>
+        <Text style={styles.textSubtotal}>{subTotalBRL}</Text>
+      </View>
     </SafeAreaView>
   );
 }
@@ -34,54 +42,57 @@ export default CartCard;
 
 const styles = StyleSheet.create({
   container: {
+    // marginVertical: 20,
+    // marginHorizontal: 10,
     margin: 10,
     backgroundColor: '#fff',
-    borderRadius: 4,
+    // padding: 20,
   },
   imageContainer: {
     alignSelf: 'center',
-    height: 200,
-    width: 200,
+    height: 100,
+    width: 100,
     resizeMode: 'contain',
+  },
+  main: {
+    fontSize: 16,
+    flexDirection: 'row',
+  },
+  mainText: {
+  },
+  footer: {
+    backgroundColor: '#ddd',
+    borderRadius: 4,
+    flexDirection: 'row',
+    fontSize: 16,
   },
   textDescription: {
     fontSize: 16,
-    paddingHorizontal: 40,
-    paddingVertical: 10,
   },
   textPrice: {
     fontSize: 16,
     fontWeight: 'bold',
-    paddingHorizontal: 40,
-    paddingVertical: 10,
+  },
+  textSubtotal: {
+    fontSize: 16,
+    flexGrow: 3,
+    fontWeight: 'bold',
+    padding: 10,
+    textAlign: 'right',
+  },
+  quantityContainer: {
+    flexGrow: 2,
+    fontWeight: 'bold',
+    justifyContent: 'center',
   },
   textQuantity: {
-    backgroundColor: '#c62c4a',
-    borderTopLeftRadius: 4,
-    borderBottomLeftRadius: 4,
-    flexGrow: 1,
+    borderRadius: 4,
+    borderColor: '#999',
+    backgroundColor: '#fff',
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#fff',
+    color: '#999',
     textAlign: 'center',
-    padding: 10,
-  },
-  textButton: {
-    backgroundColor: '#f8375d',
-    borderTopRightRadius: 4,
-    borderBottomRightRadius: 4,
-    flexGrow: 5,
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#fff',
     alignSelf: 'center',
-    textAlign: 'center',
-    padding: 10,
+    width: 50,
   },
-  touchable: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    margin: 20,
-    padding: 10,
-  }
 });

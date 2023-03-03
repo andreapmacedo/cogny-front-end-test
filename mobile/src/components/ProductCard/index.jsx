@@ -33,7 +33,8 @@ export default ProductCard;
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
+    marginHorizontal: 17,
+    marginVertical: 10,
     backgroundColor: '#fff',
     borderRadius: 4,
   },
