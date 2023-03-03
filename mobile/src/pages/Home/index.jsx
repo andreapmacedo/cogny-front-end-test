@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { GlobalContext } from '../../provider/GlobalProvider';
-import { projectFirestore } from '../../firebase/setup';
+import { db } from '../../firebase/config';
 import ProductCard from '../../components/ProductCard';
 import Header from '../../components/Header';
 import { 
@@ -26,7 +26,7 @@ export default function Home() {
 
   useEffect(() => {
     setLoading(true);
-    projectFirestore.collection('products').get().then((snapshot) => {
+    db.collection('products').get().then((snapshot) => {
       if (snapshot.empty) {
         setError('No matching documents.');
         setLoading(false);
@@ -46,7 +46,7 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    projectFirestore.collection('cart').onSnapshot((snapshot) => {
+    db.collection('cart').onSnapshot((snapshot) => {
       let results = [];
       snapshot.docs.forEach(doc => {
         results.push(doc.data());
@@ -58,14 +58,14 @@ export default function Home() {
   const addToCart = async ({ id }) => {
     try {
       
-      const querySnapshot = await projectFirestore.collection('cart').where('productId', '==', id).get();
+      const querySnapshot = await db.collection('cart').where('productId', '==', id).get();
       const existingItem = cart.find(item => item.productId === id);
 
       if (existingItem) {
         const { quantity } = existingItem;
         
         const newCart = cart.map(item => item.productId === id ? { ...item, quantity: item.quantity + 1 } : item);
-        const updateItem = projectFirestore.collection('cart').doc(querySnapshot.docs[0].id);
+        const updateItem = db.collection('cart').doc(querySnapshot.docs[0].id);
         
         await updateItem.update({ quantity: quantity + 1 });
         setCart(newCart);
@@ -73,7 +73,7 @@ export default function Home() {
       } else {
         const newItem = { productId: id, quantity: 1 };
         
-        await projectFirestore.collection('cart').doc().set(newItem);
+        await db.collection('cart').doc().set(newItem);
         setCart([...cart, {productId: id, quantity: 1}]);
       }
     } catch (error) {

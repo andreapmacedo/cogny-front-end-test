@@ -55,4 +55,4 @@ buck-out/
 web-build/
 dist/
 
-config.js
+firebaseConfig.js

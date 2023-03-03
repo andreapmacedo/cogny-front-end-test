@@ -3,8 +3,8 @@ import { useContext, useEffect, useState } from 'react';
 import Header from '../../components/Header'
 import CartCard from '../../components/CartCard'
 import { GlobalContext } from '../../provider/GlobalProvider';
-// import { projectFirestore } from '../../firebase/index.js';
-import { projectFirestore } from '../../firebase/setup';
+// import { db } from '../../firebase/index.js';
+import { db } from '../../firebase/config';
 import CartFooter from '../../components/CartFooter';
 import { 
   View,
@@ -19,10 +19,10 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
 
   const setCheckout = async () => {
-    const querySnapshot = await projectFirestore.collection('cart').get();
+    const querySnapshot = await db.collection('cart').get();
 
     if (!querySnapshot.empty) {
-      const batch = projectFirestore.batch();
+      const batch = db.batch();
       querySnapshot.forEach((doc) => {
         batch.delete(doc.ref);
       });
