@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   mainText: {
   },
   footer: {
-    backgroundColor: '#ddd',
+    backgroundColor: '#eee',
     borderRadius: 4,
     flexDirection: 'row',
     fontSize: 16,
@@ -88,12 +88,13 @@ const styles = StyleSheet.create({
   },
   textQuantity: {
     borderRadius: 4,
-    borderColor: '#999',
+    borderWidth: 1,
+    borderColor: '#ddd',
     backgroundColor: '#fff',
-    fontSize: 16,
-    color: '#999',
+    fontSize: 15,
+    color: '#777',
     textAlign: 'center',
     alignSelf: 'center',
-    width: 50,
+    width: 45,
   },
 });
