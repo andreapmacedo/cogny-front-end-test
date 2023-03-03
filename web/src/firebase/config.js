@@ -1,7 +1,5 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-// import { firebaseConfig } from './firebaseConfig';
-
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -11,7 +9,6 @@ const firebaseConfig = {
   messagingSenderId: process.env.MESSAGING_SENDER_ID,
   appId: process.env.APP_ID,
 };
-
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
