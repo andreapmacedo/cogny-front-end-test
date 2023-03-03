@@ -4,7 +4,7 @@ import CartHeader from '../../components/CartHeader';
 import CartFooter from '../../components/CartFooter';
 import CartCard from '../../components/CartCard';
 import { GlobalContext } from '../../provider/GlobalProvider';
-import { projectFirestore } from '../../firebase/setup';
+import { db } from '../../firebase/config';
 import { StyleCard, StyleCardContainer } from './styles';
 
 const Cart = () => {
@@ -12,10 +12,10 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
 
   const setCheckout = async () => {
-    const querySnapshot = await projectFirestore.collection('cart').get();
+    const querySnapshot = await db.collection('cart').get();
 
     if (!querySnapshot.empty) {
-      const batch = projectFirestore.batch();
+      const batch = db.batch();
       querySnapshot.forEach((doc) => {
         batch.delete(doc.ref);
       });
