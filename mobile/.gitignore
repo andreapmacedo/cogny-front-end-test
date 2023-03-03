@@ -55,4 +55,5 @@ buck-out/
 web-build/
 dist/
 
+.env
 firebaseConfig.js

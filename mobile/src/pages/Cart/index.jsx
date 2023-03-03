@@ -65,15 +65,16 @@ export default Cart;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
     backgroundColor: '#191919',
     flexShrink: 1,
+    height: '100%',
+    marginTop: 40,
   },
   cardContainer: {
-    marginHorizontal: 20,
     backgroundColor: '#fff',
     borderRadius: 4,
-    marginTop: 20,
     flexShrink: 1,
+    marginHorizontal: 20,
+    marginTop: 20,
   },
 });

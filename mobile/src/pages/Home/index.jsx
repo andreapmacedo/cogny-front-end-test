@@ -102,13 +102,13 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
     backgroundColor: '#191919',
-    height: '100%',
     flexShrink: 1,
+    height: '100%',
+    marginTop: 40,
   },
   cardContainer: {
-    marginTop: 20,
     flexShrink: 1,
+    marginTop: 20,
   },
 });
