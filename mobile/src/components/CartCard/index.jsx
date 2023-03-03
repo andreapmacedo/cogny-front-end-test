@@ -42,11 +42,8 @@ export default CartCard;
 
 const styles = StyleSheet.create({
   container: {
-    // marginVertical: 20,
-    // marginHorizontal: 10,
     margin: 10,
     backgroundColor: '#fff',
-    // padding: 20,
   },
   imageContainer: {
     alignSelf: 'center',

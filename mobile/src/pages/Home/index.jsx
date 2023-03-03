@@ -9,9 +9,7 @@ import {
   Text,
   SafeAreaView,
   FlatList,
-} from 'react-native'
-
-// import * as Animatable from 'react-native-animatable';
+} from 'react-native';
 
 export default function Home() {
 
@@ -35,7 +33,6 @@ export default function Home() {
           snapshot.docs.forEach(doc => {
             results.push({id: doc.id, ...doc.data()});
           });
-          // console.log('results:', results);
           setProducts(results);
           setLoading(false);
       }
@@ -82,7 +79,7 @@ export default function Home() {
   }
 
   return (
-    <View
+    <SafeAreaView
       style={styles.container}
     >
       <Header />
@@ -99,7 +96,7 @@ export default function Home() {
           />
         }
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
@@ -108,8 +105,10 @@ const styles = StyleSheet.create({
     marginTop: 40,
     backgroundColor: '#191919',
     height: '100%',
+    flexShrink: 1,
   },
   cardContainer: {
     marginTop: 20,
+    flexShrink: 1,
   },
 });

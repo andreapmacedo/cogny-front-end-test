@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from 'react';
 import Header from '../../components/Header'
 import CartCard from '../../components/CartCard'
 import { GlobalContext } from '../../provider/GlobalProvider';
-// import { db } from '../../firebase/index.js';
 import { db } from '../../firebase/config';
 import CartFooter from '../../components/CartFooter';
 import { 
@@ -46,9 +45,7 @@ const Cart = () => {
       style={styles.container}
     >
       <Header />
-      <View
-        style={styles.cardContainer}
-      >
+      <View style={styles.cardContainer}>
         {cart && 
           <FlatList
             data={cart}
@@ -70,12 +67,13 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 40,
     backgroundColor: '#191919',
-    height: '100%',
+    flexShrink: 1,
   },
   cardContainer: {
     marginHorizontal: 20,
     backgroundColor: '#fff',
     borderRadius: 4,
     marginTop: 20,
+    flexShrink: 1,
   },
 });
