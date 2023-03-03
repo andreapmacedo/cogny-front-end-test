@@ -14,10 +14,9 @@ export const StyleCard = styled.div`
 `;
 
 export const StyleImage = styled.div`
-  grid-area: image;
-
   align-items: center;
   display: flex;  
+  grid-area: image;
   height: 100px;
   width: 100px;
 
@@ -30,7 +29,6 @@ export const StyleImage = styled.div`
 
 export const StyleDescription = styled.div`
   grid-area: description;
-  
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -44,7 +42,6 @@ export const StyleDescription = styled.div`
 
 export const StyleQuantity = styled.div`
   grid-area: quantity;
-  
   align-items: center;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -58,7 +55,6 @@ export const StyleQuantity = styled.div`
 
 export const StyleSubTotal = styled.div`
   grid-area: subTotal;
-  
   align-items: center;
   font-weight: 700;
   display: flex;

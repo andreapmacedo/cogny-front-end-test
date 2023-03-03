@@ -19,7 +19,7 @@ const ProductCard = ({data, action}) => {
       </StyleDescription>
       <StyleButton onClick={() => action(data)}>
         <div>1</div>
-        <div>ADICIONAR AO CARRINHOS</div>
+        <div>ADICIONAR AO CARRINHO</div>
       </StyleButton>
     </ProductCardContainer>
   );

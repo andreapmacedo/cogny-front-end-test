@@ -25,7 +25,6 @@ const Cart = () => {
 
   useEffect(() => {
     const total = cart.reduce((acc, productCart) => {
-      console.log(productCart);
       const { quantity } = productCart;
       const currentProduct = products.find(product => product.id === productCart.productId);
       return acc + (quantity*currentProduct.price);

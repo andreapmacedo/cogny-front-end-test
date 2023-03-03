@@ -71,6 +71,7 @@ export const StyleButton = styled.div`
     font-weight: 700;
     height: 42px;
     width: 208px;
+    justify-content: center;
   }
 
   div:nth-child(1) {
@@ -79,6 +80,7 @@ export const StyleButton = styled.div`
     border-radius: 4px 0 0 4px;
     display: flex;
     justify-content: center;
+    
     height: 42px;
     width: 52px;
   }
