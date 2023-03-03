@@ -10,7 +10,7 @@ const CartFooter = ({total, action}) => {
 
   return (
     <StyleCartFooter>
-      <button onClick={action} disabled={cart.length === 0 ? true : false }>FINALIZAR PEDIDO</button>
+      <button onClick={action} disabled={ cart.length === 0 ? true : false }>FINALIZAR PEDIDO</button>
       <div>
         <p>TOTAL</p>
         <h2>{totalBR}</h2>

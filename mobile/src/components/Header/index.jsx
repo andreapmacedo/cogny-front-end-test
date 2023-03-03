@@ -48,7 +48,6 @@ export default Header;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    // justifyContent: 'space-between',
     backgroundColor: '#191919',
     color: '#fff',
     marginTop: 40,
@@ -79,7 +78,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: '#fff',
-    // position: 'absolute',
   },
   cartLength: {
     backgroundColor: '#c62c4a',
@@ -89,6 +87,5 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
     top: -7,
-    
   },
 });

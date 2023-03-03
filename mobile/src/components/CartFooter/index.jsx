@@ -1,5 +1,5 @@
-// import { useContext } from 'react';
-// import { GlobalContext } from '../../provider/GlobalProvider';
+import { useContext } from 'react';
+import { GlobalContext } from '../../provider/GlobalProvider';
 import { 
   View,
   TouchableOpacity,
@@ -7,10 +7,9 @@ import {
   StyleSheet,
 } from 'react-native'
 
-
 const CartFooter = ({total, action}) => {
 
-  // const { cart } = useContext(GlobalContext);
+  const { cart } = useContext(GlobalContext);
 
   const totalBRL = `R$ ${total.toFixed(2).replace('.', ',')}`
   
@@ -21,8 +20,9 @@ const CartFooter = ({total, action}) => {
         <Text style={styles.textValue}>{totalBRL}</Text>
       </View>
       <TouchableOpacity
-        style={styles.touchable}
-        onPress={() => action()} 
+        style={cart.length === 0 ? styles.touchable.disabled : styles.touchable}
+        onPress={() => action()}
+        disabled={ cart.length === 0 ? true : false } 
       >
         <Text style={styles.textButton}>FINALIZAR PEDIDO</Text>
       </TouchableOpacity>
@@ -62,5 +62,15 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     justifyContent: 'center',
     backgroundColor: '#c62c4a',
-  }
+    disabled: {
+      paddingLeft: 20,
+      borderRadius: 4,
+      paddingRight: 20,
+      height: 42,
+      marginHorizontal: 10,
+      marginVertical: 10,
+      justifyContent: 'center',
+      backgroundColor: '#999',
+    }
+  },
 });
