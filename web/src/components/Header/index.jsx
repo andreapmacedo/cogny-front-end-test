@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { GlobalContext } from '../../provider/GlobalProvider';
 import { useNavigate } from 'react-router-dom';
 import { HeaderContainer } from './styles';
+import logo_cognyshoes from '../../assets/logo_cognyshoes.svg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Header = () => {
     <HeaderContainer>
       <div onClick={ () => navigate('/') }>
         <h2>COGNYSHOES</h2>
+        <img src={logo_cognyshoes} alt={'icon'} />
       </div>
       <div onClick={ () => navigate('/cart') }>
         <h3>Meu carrinho</h3>

@@ -1,25 +1,26 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
-
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem 0;
-  top: 0;
-  /* position: fixed; */
-  /* z-index: 100; */
+  position: fixed;
+  z-index: 100;
+  width: 100%;
   background-color: #191919;
   color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-right: 200px;
+  top: 0;
+  align-items: center; 
 
   div {
-    display: flex;
-    align-items: center;
-    width: 10rem;
-    height: 3rem;
-    background-color: #fff;
     background-color: #191919;
-    border-radius: 0.5rem;
+    display: flex;
     cursor: pointer;  
+  }
+
+  img {
+    margin-left: 8px;
   }
     
   div:nth-child(2) {
@@ -38,8 +39,8 @@ export const HeaderContainer = styled.div`
 
     p {
       color: #999;
-      padding-right: 4px;
       font-style: bolder;
+      padding-right: 4px;
     }
   }
   
