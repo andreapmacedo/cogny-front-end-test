@@ -4,7 +4,7 @@ import CartHeader from '../../components/CartHeader';
 import CartFooter from '../../components/CartFooter';
 import CartCard from '../../components/CartCard';
 import { GlobalContext } from '../../provider/GlobalProvider';
-import { projectFirestore } from '../../firebase/config';
+import { projectFirestore } from '../../firebase/setup';
 import { StyleCard, StyleCardContainer } from './styles';
 
 const Cart = () => {

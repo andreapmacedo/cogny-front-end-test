@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { projectFirestore } from '../../firebase/config';
+import { projectFirestore } from '../../firebase/setup';
 import Products from '../../components/Products';
 import Header from '../../components/Header';
 import { GlobalContext } from '../../provider/GlobalProvider';
