@@ -2,14 +2,15 @@ import { useContext } from 'react';
 import { GlobalContext } from '../../provider/GlobalProvider';
 import { useNavigation } from '@react-navigation/native';
 // import { SimpleLineIcons } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
+import cognyshoes from '../../assets/logo_cognyshos.png';
 
+import { Feather } from '@expo/vector-icons';
 import { 
   View,
   StyleSheet,
+  Image,
   Text,
   SafeAreaView,
-  FlatList,
   TouchableOpacity,
 } from 'react-native'
 
@@ -25,7 +26,13 @@ const Header = () => {
         style={styles.logoButton}
         onPress={() => navigation.navigate('Home')}
       >
-        <Text style={styles.text}>COGNYSHOES</Text>
+        <Text style={styles.textLogo}>COGNYSHOES</Text>
+        <Image
+          style={{ width: 34, height: 23 }}
+          source={cognyshoes}
+          alt="logo cognyshoes"
+          resizeMode='contain'
+        />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.iconButton}
@@ -36,7 +43,6 @@ const Header = () => {
         </View>
         <View style={styles.cartLength}>
           <Text style={styles.textLength}>{cart.length}</Text>
-            {/* <SimpleLineIcons name="handbag" size={24} color="white" /> */}
           </View>   
       </TouchableOpacity>
     </SafeAreaView>
@@ -51,12 +57,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#191919',
     color: '#fff',
     marginTop: 40,
-    
+    justifyContent: 'space-between',
   },
-  text: {
+  textLogo: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 20,
+    fontWeight: 'bold',
     alignSelf: 'center',
+    justifyContent: 'flex-start',
+    paddingRight: 10,
   },
   textLength: {
     color: '#fff',
@@ -67,14 +76,12 @@ const styles = StyleSheet.create({
   },
   logoButton: {
     paddingLeft: 20,
-    justifyContent: 'center', 
-    flexGrow: 5,
+    flexDirection: 'row',
   },
   iconButton: {
+    paddingRight: 42,
     position: 'relative',
     paddingLeft: 20,
-    justifyContent: 'center', 
-    flexGrow: 1,
   },
   icon: {
     color: '#fff',
