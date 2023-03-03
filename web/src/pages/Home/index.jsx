@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
 import { db } from '../../firebase/config';
-import Products from '../../components/Products';
+import ProductCard from '../../components/ProductCard';
 import Header from '../../components/Header';
 import { GlobalContext } from '../../provider/GlobalProvider';
-import { StyleHome } from './styles';
+import { HomeContainer, ProductsContainer } from './styles';
 
 const Home = () => {
 
@@ -73,12 +73,16 @@ const Home = () => {
   }
 
   return (
-    <StyleHome>
+    <HomeContainer>
       <Header />
       {error && <p>Something went wrong ...</p>}
       {loading && <p>Loading...</p>}
-      {products && <Products data={products} action={addToCart}/>}
-    </StyleHome>
+      <ProductsContainer>
+        {products.map((product, index) => (
+          <ProductCard key={index} data={product} action={addToCart}/>
+      ))}
+      </ProductsContainer>
+    </HomeContainer>
   );
 }
 
