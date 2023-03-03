@@ -18,7 +18,7 @@ const CartCard = ({ data }) => {
   return (
     <StyleCard>
       <StyleImage>
-        <img src={product.imageUrl} alt="Product" />
+        <img src={product.imageUrl} alt="Product"/>
       </StyleImage>
       <StyleDescription>
         <p>{product.description}</p>

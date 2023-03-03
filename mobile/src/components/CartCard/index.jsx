@@ -23,7 +23,7 @@ const CartCard = ({ data }) => {
     >
       <View style={styles.main}>
         <Image source={{ uri: imageUrl }} style={styles.imageContainer}/>
-        <View>
+        <View style={styles.main.description}>
           <Text style={styles.textDescription}>{description}</Text>
           <Text style={styles.textPrice}>{priceBRL}</Text>
         </View>
@@ -54,6 +54,10 @@ const styles = StyleSheet.create({
   main: {
     fontSize: 16,
     flexDirection: 'row',
+    description: {
+      margin: 10,
+      flexShrink: 1,
+    },
   },
   mainText: {
   },
