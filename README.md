@@ -1,3 +1,8 @@
+
+
+![cover](./cognyshoes_cover.gif)
+
+
 <h2 align="center">
   Cogny Web/Mobile Teste
 </h2>
