@@ -43,7 +43,7 @@ const Header = () => {
         </View>
         <View style={styles.cartLength}>
           <Text style={styles.textLength}>{cart.length}</Text>
-          </View>   
+        </View>   
       </TouchableOpacity>
     </SafeAreaView>
   );
