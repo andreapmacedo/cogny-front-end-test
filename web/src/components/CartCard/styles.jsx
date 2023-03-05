@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyleCard = styled.div`
+export const Container = styled.div`
   display: grid; 
   grid-template-columns: 15% 50% 15% 20%;
   grid-template-areas:
@@ -13,7 +13,7 @@ export const StyleCard = styled.div`
   width: 100%;
 `;
 
-export const StyleImage = styled.div`
+export const ImageContainer = styled.div`
   align-items: center;
   display: flex;  
   grid-area: image;
@@ -27,7 +27,7 @@ export const StyleImage = styled.div`
   }
 `;
 
-export const StyleDescription = styled.div`
+export const Description = styled.div`
   grid-area: description;
   background-color: #fff;
   display: flex;
@@ -40,7 +40,7 @@ export const StyleDescription = styled.div`
 
 `;
 
-export const StyleQuantity = styled.div`
+export const Quantity = styled.div`
   grid-area: quantity;
   align-items: center;
   border: 1px solid #ccc;
@@ -53,7 +53,7 @@ export const StyleQuantity = styled.div`
   width: 48px;
 `;
 
-export const StyleSubTotal = styled.div`
+export const Subtotal = styled.div`
   grid-area: subTotal;
   align-items: center;
   font-weight: 700;

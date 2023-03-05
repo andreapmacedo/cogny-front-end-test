@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ProductCardContainer = styled.div`
+export const Container = styled.div`
   align-items: center;
   display: flex;
   background-color: #fff;
@@ -25,7 +25,7 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const StyleDescription = styled.div`
+export const Description = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0px 20px;
@@ -41,7 +41,7 @@ export const StyleDescription = styled.div`
   }
 `;
 
-export const StyleButton = styled.div`
+export const Button = styled.div`
   align-items: center;
   position: absolute;
   border: none;

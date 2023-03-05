@@ -3,7 +3,7 @@ import { db } from '../../firebase/config';
 import ProductCard from '../../components/ProductCard';
 import Header from '../../components/Header';
 import { GlobalContext } from '../../provider/GlobalProvider';
-import { HomeContainer, ProductsContainer } from './styles';
+import { Container, CardContainer } from './styles';
 
 const Home = () => {
 
@@ -73,16 +73,16 @@ const Home = () => {
   }
 
   return (
-    <HomeContainer>
+    <Container>
       <Header />
       {error && <p>Something went wrong ...</p>}
       {loading && <p>Loading...</p>}
-      <ProductsContainer>
+      <CardContainer>
         {products.map((product, index) => (
           <ProductCard key={index} data={product} action={addToCart}/>
       ))}
-      </ProductsContainer>
-    </HomeContainer>
+      </CardContainer>
+    </Container>
   );
 }
 

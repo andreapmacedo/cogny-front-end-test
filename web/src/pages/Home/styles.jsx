@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const HomeContainer = styled.div`
+export const Container = styled.div`
   margin: 0px 100px;
 `;
 
-export const ProductsContainer = styled.div`
+export const CardContainer = styled.div`
   gap: 16px;
   display: flex;
   align-items: center;

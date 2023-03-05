@@ -1,7 +1,7 @@
-import { ProductCardContainer,
+import { Container,
   ImageContainer,
-  StyleDescription,
-  StyleButton
+  Description,
+  Button
 } from './styles';
 
 const ProductCard = ({data, action}) => {
@@ -9,19 +9,19 @@ const ProductCard = ({data, action}) => {
   const price = data.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
   return (
-    <ProductCardContainer>
+    <Container>
       <ImageContainer>
         <img src={data.imageUrl} alt="Product" />
       </ImageContainer>
-      <StyleDescription>
+      <Description>
         <h5>{data.description}</h5>
         <h3>{price}</h3>
-      </StyleDescription>
-      <StyleButton onClick={() => action(data)}>
+      </Description>
+      <Button onClick={() => action(data)}>
         <div>1</div>
         <div>ADICIONAR AO CARRINHO</div>
-      </StyleButton>
-    </ProductCardContainer>
+      </Button>
+    </Container>
   );
 }
 

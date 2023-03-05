@@ -5,7 +5,7 @@ import CartFooter from '../../components/CartFooter';
 import CartCard from '../../components/CartCard';
 import { GlobalContext } from '../../provider/GlobalProvider';
 import { db } from '../../firebase/config';
-import { StyleCard, StyleCardContainer } from './styles';
+import { Container, CardContainer } from './styles';
 
 const Cart = () => {
   const { cart, products } = useContext(GlobalContext);
@@ -20,6 +20,7 @@ const Cart = () => {
         batch.delete(doc.ref);
       });
       await batch.commit();
+      alert('Compra realizada com sucesso!');
     } 
   }
 
@@ -33,16 +34,16 @@ const Cart = () => {
   }, [cart, products]);
 
   return (
-    <StyleCard>
+    <Container>
       <Header />
       <CartHeader />
-      <StyleCardContainer>
+      <CardContainer>
         {cart.map((product, index) => (
           <CartCard key={index} data={product} />
         ))}
-      </StyleCardContainer>
+      </CardContainer>
       <CartFooter total={total} action={setCheckout}/>
-    </StyleCard>
+    </Container>
   );
 }
 

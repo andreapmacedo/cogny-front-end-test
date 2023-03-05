@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyleCartHeader = styled.div`
+export const Container = styled.div`
   display: grid; 
   padding: 15px 30px;
   grid-template-columns: 15% 50% 15% 20%;

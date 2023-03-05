@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../../provider/GlobalProvider';
 import { 
-  StyleCard,
-  StyleImage,
-  StyleDescription,
-  StyleQuantity,
-  StyleSubTotal
+  Container,
+  ImageContainer,
+  Description,
+  Quantity,
+  Subtotal
 } from './styles';
 
 const CartCard = ({ data }) => {
@@ -16,17 +16,17 @@ const CartCard = ({ data }) => {
   const subTotal = (product.price * data.quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   
   return (
-    <StyleCard>
-      <StyleImage>
+    <Container>
+      <ImageContainer>
         <img src={product.imageUrl} alt="Product"/>
-      </StyleImage>
-      <StyleDescription>
+      </ImageContainer>
+      <Description>
         <p>{product.description}</p>
         <h3>{price}</h3>
-      </StyleDescription>
-      <StyleQuantity>{data.quantity}</StyleQuantity>
-      <StyleSubTotal>{subTotal}</StyleSubTotal>
-    </StyleCard>
+      </Description>
+      <Quantity>{data.quantity}</Quantity>
+      <Subtotal>{subTotal}</Subtotal>
+    </Container>
   );
 }
 

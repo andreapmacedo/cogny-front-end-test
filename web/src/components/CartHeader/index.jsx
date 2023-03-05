@@ -1,13 +1,13 @@
-import { StyleCartHeader } from './styles';
+import { Container } from './styles';
 
 const CartHeader = () => {
   return (
-    <StyleCartHeader>
+    <Container>
       <div></div>
       <div>PRODUTO</div>
       <div>QTD</div>
       <div>PREÇO</div>
-    </StyleCartHeader>
+    </Container>
   );
 }
 

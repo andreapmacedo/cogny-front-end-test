@@ -26,6 +26,7 @@ const Cart = () => {
         batch.delete(doc.ref);
       });
       await batch.commit();
+      alert('Compra realizada com sucesso!');
     } 
   }
 

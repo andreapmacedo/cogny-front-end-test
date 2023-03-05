@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.div`
+export const Container = styled.div`
   position: fixed;
   z-index: 100;
   width: 100%;
